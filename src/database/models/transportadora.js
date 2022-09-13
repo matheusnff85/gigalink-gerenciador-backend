@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Transportadora.associate = (models) => {
     Transportadora.hasMany(models.Pedido,
-      { foreignKey: 'idTransportadora', as: 'pedido' });
+      { foreignKey: 'idTransportadora', as: 'pedidos' });
   };
 
   return Transportadora;

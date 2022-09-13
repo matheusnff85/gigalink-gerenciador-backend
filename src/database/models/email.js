@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Email.associate = (models) => {
     Email.belongsTo(models.Fornecedor,
-      { foreignKey: 'idFornecedor', as: 'fornecedor' });
+      { foreignKey: 'idFornecedor', as: 'fornecedores' });
   };
 
   return Email;

@@ -9,7 +9,26 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       ddd: {
-        type: Sequelize.NUMBER
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      numero: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      referencia: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      idFornecedor: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Fornecedores',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
     });
   },

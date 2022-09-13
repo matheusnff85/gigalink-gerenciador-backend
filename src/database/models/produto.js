@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
 
   Produto.associate = (models) => {
     Produto.belongsTo(models.Fornecedor,
-      { foreignKey: 'idFornecedor', as: 'fornecedor' });
+      { foreignKey: 'idFornecedor', as: 'fornecedores' });
     Produto.hasMany(models.Item,
-      { foreignKey: 'idProduto', as: 'item' });
+      { foreignKey: 'idProduto', as: 'items' });
   };
 
   return Produto;

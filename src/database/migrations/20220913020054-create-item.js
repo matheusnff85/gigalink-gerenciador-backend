@@ -9,7 +9,32 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       quantidade: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      valor: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
+      },
+      idProduto: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Produtos',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+      },
+      idPedido: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Pedidos',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
     });
   },

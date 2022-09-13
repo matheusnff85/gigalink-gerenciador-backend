@@ -15,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
 
   Fornecedor.associate = (models) => {
     Fornecedor.hasMany(models.Email,
-      { foreignKey: 'idFornecedor', as: 'email' });
+      { foreignKey: 'idFornecedor', as: 'emails' });
     Fornecedor.hasMany(models.Telefone,
-      { foreignKey: 'idFornecedor', as: 'telefone'});
+      { foreignKey: 'idFornecedor', as: 'telefones'});
     Fornecedor.hasMany(models.Produto,
-      { foreignKey: 'idFornecedor', as: 'produto'});
+      { foreignKey: 'idFornecedor', as: 'produtos'});
   };
 
   return Fornecedor;

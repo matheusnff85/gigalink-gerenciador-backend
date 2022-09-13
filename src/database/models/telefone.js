@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Telefone.associate = (models) => {
     Telefone.belongsTo(models.Fornecedor,
-      { foreignKey: 'idFornecedor', as: 'fornecedor' });
+      { foreignKey: 'idFornecedor', as: 'fornecedores' });
   };
 
   return Telefone;

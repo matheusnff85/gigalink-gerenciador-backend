@@ -9,11 +9,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       referencia: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
+      idFornecedor: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: {
+          model: 'Fornecedores',
+          key: 'id',
+        },
+      }
     });
   },
   async down(queryInterface, Sequelize) {
