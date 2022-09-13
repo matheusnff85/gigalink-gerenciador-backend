@@ -1,19 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-  const Email = sequelize.define('Email', {
+  const Telefone = sequelize.define('Telefone', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    email: DataTypes.STRING,
+    ddd: DataTypes.STRING,
+    numero: DataTypes.STRING,
     referencia: DataTypes.STRING,
     idFornecedor: { type: DataTypes.INTEGER, foreignKey: true },
   },
   {
     timestamps: false,
-    tableName: 'Emails',
+    tableName: 'Telefones',
   });
 
-  Email.associate = (models) => {
-    Email.belongsTo(models.Fornecedor,
+  Telefone.associate = (models) => {
+    Telefone.belongsTo(models.Fornecedor,
       { foreignKey: 'idFornecedor', as: 'fornecedor' });
   };
 
-  return Email;
+  return Telefone;
 };

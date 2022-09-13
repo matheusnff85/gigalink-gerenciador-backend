@@ -1,6 +1,6 @@
 import mysql from 'mysql2/promise';
 
-import('dotenv/config');
+require('dotenv').config();
 
 export default mysql.createPool({
   host: process.env.DB_HOST,

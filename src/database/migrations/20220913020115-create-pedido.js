@@ -1,22 +1,19 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Emails', {
+    await queryInterface.createTable('Pedidos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      email: {
-        type: Sequelize.STRING
-      },
-      referencia: {
+      notafiscal: {
         type: Sequelize.STRING
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Emails');
+    await queryInterface.dropTable('Pedidos');
   }
 };

@@ -11,9 +11,6 @@ const options = {
   username: MYSQL_USER || 'root',
   password: MYSQL_PASSWORD || '1234',
   dialect: 'mysql',
-  dialectOptions: {
-    timezone: 'Z',
-  },
 };
 
 module.exports = {

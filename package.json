@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "generatedb": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "drop": "npx sequelize-cli db:drop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
