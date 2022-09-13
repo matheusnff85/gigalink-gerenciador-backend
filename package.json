@@ -1,0 +1,26 @@
+{
+  "name": "gigalink-gerenciador-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generatedb": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.6",
+    "sequelize-cli": "^6.4.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.19"
+  }
+}
