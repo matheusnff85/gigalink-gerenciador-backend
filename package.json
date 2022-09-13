@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "generatedb": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "dropdb": "npx sequelize-cli db:drop",
+    "seeddb": "npx sequelize-cli db:seed:all",
     "start": "node .",
     "debug": "nodemon .",
-    "drop": "npx sequelize-cli db:drop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
