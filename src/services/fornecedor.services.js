@@ -26,6 +26,12 @@ const getOne = async (id) => {
   return { code: 200, data: result };
 };
 
+const update = async (id, updatedInfos) => {
+  await Fornecedor.update(updatedInfos, { where: { id } });
+  const updated = await Fornecedor.findByPk(id);
+  return { code: 200, data: updated };
+};
+
 const create = async (newFornecedor) => {
   const newItem = await Fornecedor.create(newFornecedor);
   return { code: 201, data: newItem };
@@ -37,5 +43,5 @@ const remove = async (id) => {
 };
 
 module.exports = {
-  getAll, getOne, remove, create,
+  getAll, getOne, remove, create, update,
 };
