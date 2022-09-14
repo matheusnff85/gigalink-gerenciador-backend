@@ -1,12 +1,23 @@
-const { Produto } = require('../database/models');
+const {
+  Produto, Fornecedor,
+} = require('../database/models');
 
 const getAll = async () => {
-  const result = await Produto.findAll();
+  const result = await Produto.findAll({
+    include: [
+      { model: Fornecedor, as: 'fornecedor', through: { attributes: [] } },
+    ],
+  });
   return { code: 200, data: result };
 };
 
 const getOne = async (id) => {
-  const result = await Produto.findOne({ where: { id } });
+  const result = await Produto.findOne({
+    where: { id },
+    include: [
+      { model: Fornecedor, as: 'fornecedor', through: { attributes: [] } },
+    ],
+  });
   if (!result) return { code: 404, message: 'Not Found' };
   return { code: 200, data: result };
 };

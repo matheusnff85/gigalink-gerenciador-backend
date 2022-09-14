@@ -1,12 +1,23 @@
-const { Email } = require('../database/models');
+const {
+  Email, Fornecedor,
+} = require('../database/models');
 
 const getAll = async () => {
-  const result = await Email.findAll();
+  const result = await Email.findAll({
+    include: [
+      { model: Fornecedor, as: 'fornecedor', through: { attributes: [] } },
+    ],
+  });
   return { code: 200, data: result };
 };
 
 const getOne = async (id) => {
-  const result = await Email.findOne({ where: { id } });
+  const result = await Email.findOne({
+    where: { id },
+    include: [
+      { model: Fornecedor, as: 'fornecedor', through: { attributes: [] } },
+    ],
+  });
   if (!result) return { code: 404, message: 'Not Found' };
   return { code: 200, data: result };
 };
