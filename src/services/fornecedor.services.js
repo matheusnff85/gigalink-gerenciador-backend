@@ -22,7 +22,7 @@ const getOne = async (id) => {
       { model: Produto, as: 'produtos', through: { attributes: [] } },
     ],
   });
-  if (!result) return { code: 404, message: 'Fornecedor não encontrado' };
+  if (!result) return { code: 404, message: 'Not Found' };
   return { code: 200, data: result };
 };
 
