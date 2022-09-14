@@ -32,9 +32,9 @@ const update = async (id, updatedInfos) => {
   return { code: 200, data: updated };
 };
 
-const create = async (newFornecedor) => {
-  const newItem = await Fornecedor.create(newFornecedor);
-  return { code: 201, data: newItem };
+const create = async (newItem) => {
+  const created = await Fornecedor.create(newItem);
+  return { code: 201, data: created };
 };
 
 const remove = async (id) => {
