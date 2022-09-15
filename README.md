@@ -31,4 +31,8 @@ API_PORT=3001
 docker container run --name database -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d mysql:5.7
 ```
 
-- Após isso é só clonar o repositório com o comando `git clone git@github.com:matheusnff85/gigalink-gerenciador-backend.git`, e instalar suas dependencias com o comando `npm install` na raiz do diretório e seguindo para deixar a API online utilize os comandos `npm start` ou `npm run debug`, se tudo deu certo você verá no terminal a mensagem: `Server is running on PORT: "Porta definida no .env"`.
+- Após isso é só clonar o repositório com o comando 
+```bash
+git clone git@github.com:matheusnff85/gigalink-gerenciador-backend.git
+```
+e instalar suas dependencias com o comando `npm install` na raiz do diretório e seguindo para deixar a API online utilize os comandos `npm start` ou `npm run debug`, se tudo deu certo você verá no terminal a mensagem: `Server is running on PORT: "Porta definida no .env"`.
