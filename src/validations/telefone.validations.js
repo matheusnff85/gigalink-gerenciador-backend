@@ -3,15 +3,15 @@ const { Telefone, Fornecedor } = require('../database/models');
 
 const telefoneSchema = Joi.object({
   ddd: Joi.string().required().messages({
-    'string.base': '400|"ddd" must be a string',
+    'string.base': '422|"ddd" must be a string',
     'any.required': '400|"ddd" is required',
   }),
   numero: Joi.string().required().messages({
-    'string.base': '400|"numero" must be a string',
+    'string.base': '422|"numero" must be a string',
     'any.required': '400|"numero" is required',
   }),
   referencia: Joi.string().required().messages({
-    'string.base': '400|"referencia" must be a string',
+    'string.base': '422|"referencia" must be a string',
     'any.required': '400|"referencia" is required',
   }),
   idFornecedor: Joi.number().integer().required().messages({

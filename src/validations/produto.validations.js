@@ -1,15 +1,14 @@
 const Joi = require('joi');
-const { Email, Fornecedor } = require('../database/models');
+const { Produto, Fornecedor } = require('../database/models');
 
-const emailSchema = Joi.object({
-  email: Joi.string().email().required().messages({
-    'string.base': '422|"email" must be a string',
-    'string.email': '422|"email" must be a valid email',
-    'any.required': '400|"email" is required',
+const produtoSchema = Joi.object({
+  nome: Joi.string().required().messages({
+    'string.base': '422|"nome" must be a string',
+    'any.required': '400|"nome" is required',
   }),
-  referencia: Joi.string().required().messages({
-    'string.base': '422|"referencia" must be a string',
-    'any.required': '400|"referencia" is required',
+  descricao: Joi.string().required().messages({
+    'string.base': '422|"descricao" must be a string',
+    'any.required': '400|"descricao" is required',
   }),
   idFornecedor: Joi.number().integer().required().messages({
     'number.base': '422|"idFornecedor" must be a number',
@@ -18,26 +17,26 @@ const emailSchema = Joi.object({
   }),
 });
 
-const validateNew = async (emailObj) => {
-  const schemaValidate = emailSchema.validate(emailObj);
+const validateNew = async (produtoObj) => {
+  const schemaValidate = produtoSchema.validate(produtoObj);
   if ('error' in schemaValidate) {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const fornecedorExists = await Fornecedor.findByPk(emailObj.idFornecedor);
+  const fornecedorExists = await Fornecedor.findByPk(produtoObj.idFornecedor);
   if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
 };
 
-const validateToUpdate = async (id, emailObj) => {
-  const schemaValidate = emailSchema.validate(emailObj);
+const validateToUpdate = async (id, produtoObj) => {
+  const schemaValidate = produtoSchema.validate(produtoObj);
   if ('error' in schemaValidate) {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const { idFornecedor } = emailObj;
-  const emailExists = await Email.findByPk(id);
-  if (!emailExists) return { code: 404, message: 'Email not found' };
+  const { idFornecedor } = produtoObj;
+  const produtoExists = await Produto.findByPk(id);
+  if (!produtoExists) return { code: 404, message: 'Produto not found' };
   const fornecedorExists = await Fornecedor.findByPk(idFornecedor);
   if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
