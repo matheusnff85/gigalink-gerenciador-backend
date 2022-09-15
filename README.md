@@ -36,3 +36,22 @@ docker container run --name database -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 -d
 git clone git@github.com:matheusnff85/gigalink-gerenciador-backend.git
 ```
 e instalar suas dependencias com o comando `npm install` na raiz do diretório e seguindo para deixar a API online utilize os comandos `npm start` ou `npm run debug`, se tudo deu certo você verá no terminal a mensagem: `Server is running on PORT: "Porta definida no .env"`.
+
+## Scripts prontos
+
+- Gera o banco de dados:
+```json
+npm run generatedb
+```
+
+- Popula o banco de dados:
+```json
+npm run seeddb
+```
+
+- Deleta o banco de dados:
+```json
+npm run dropdb
+```
+
+---
