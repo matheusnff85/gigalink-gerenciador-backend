@@ -1,10 +1,14 @@
 const Joi = require('joi');
-const { Email, Fornecedor } = require('../database/models');
+const { Telefone, Fornecedor } = require('../database/models');
 
-const emailSchema = Joi.object({
-  email: Joi.string().email().required().messages({
-    'string.email': '400|"email" must be a valid email',
-    'any.required': '400|"email" is required',
+const telefoneSchema = Joi.object({
+  ddd: Joi.string().required().messages({
+    'string.base': '400|"ddd" must be a string',
+    'any.required': '400|"ddd" is required',
+  }),
+  numero: Joi.string().required().messages({
+    'string.base': '400|"numero" must be a string',
+    'any.required': '400|"numero" is required',
   }),
   referencia: Joi.string().required().messages({
     'string.base': '400|"referencia" must be a string',
@@ -17,26 +21,26 @@ const emailSchema = Joi.object({
   }),
 });
 
-const validateNew = async (emailObj) => {
-  const schemaValidate = emailSchema.validate(emailObj);
+const validateNew = async (telefoneObj) => {
+  const schemaValidate = telefoneSchema.validate(telefoneObj);
   if ('error' in schemaValidate) {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const fornecedorExists = await Fornecedor.findByPk(emailObj.idFornecedor);
+  const fornecedorExists = await Fornecedor.findByPk(telefoneObj.idFornecedor);
   if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
 };
 
-const validateToUpdate = async (id, emailObj) => {
-  const schemaValidate = emailSchema.validate(emailObj);
+const validateToUpdate = async (id, telefoneObj) => {
+  const schemaValidate = telefoneSchema.validate(telefoneObj);
   if ('error' in schemaValidate) {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const { idFornecedor } = emailObj;
-  const emailExists = await Email.findByPk(id);
-  if (!emailExists) return { code: 404, message: 'Email not found' };
+  const { idFornecedor } = telefoneObj;
+  const telefoneExists = await Telefone.findByPk(id);
+  if (!telefoneExists) return { code: 404, message: 'Telefone not found' };
   const fornecedorExists = await Fornecedor.findByPk(idFornecedor);
   if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
