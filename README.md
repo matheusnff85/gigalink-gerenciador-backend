@@ -6,6 +6,7 @@ Neste repositório contém o backend da aplicação pedida, desenvolvido por [Ma
 ## Estrutura do banco de dados
 
 O banco foi feito seguindo o diagrama pedido e se estrutura da seguinte forma ilustrada na imagem abaixo:
+
 <img src="images/estrutura.png">
 
 ---
