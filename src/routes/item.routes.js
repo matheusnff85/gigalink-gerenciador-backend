@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import itemController from '../controllers/item.controller';
+const express = require('express');
+const itemController = require('../controllers/item.controller');
 
-const itemRouter = Router();
+const itemRouter = express.Router();
 
 itemRouter.get('/', itemController.getAll);
 itemRouter.get('/:id', itemController.getOne);
@@ -9,4 +9,4 @@ itemRouter.post('/', itemController.create);
 itemRouter.put('/:id', itemController.update);
 itemRouter.delete('/:id', itemController.remove);
 
-export default itemRouter;
+module.exports = itemRouter;

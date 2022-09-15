@@ -1,13 +1,14 @@
-const {
-  Fornecedor, Email, Telefone, Produto,
-} = require('../database/models');
+const { Email } = require('../database/models');
+const { Fornecedor } = require('../database/models');
+const { Telefone } = require('../database/models');
+const { Produto } = require('../database/models');
 
 const getAll = async () => {
   const result = await Fornecedor.findAll({
     include: [
-      { model: Email, as: 'emails', through: { attributes: [] } },
-      { model: Telefone, as: 'telefones', through: { attributes: [] } },
-      { model: Produto, as: 'produtos', through: { attributes: [] } },
+      { model: Email, as: 'emails' },
+      { model: Telefone, as: 'telefones' },
+      { model: Produto, as: 'produtos' },
     ],
   });
   return { code: 200, data: result };
@@ -17,9 +18,9 @@ const getOne = async (id) => {
   const result = await Fornecedor.findOne({
     where: { id },
     include: [
-      { model: Email, as: 'emails', through: { attributes: [] } },
-      { model: Telefone, as: 'telefones', through: { attributes: [] } },
-      { model: Produto, as: 'produtos', through: { attributes: [] } },
+      { model: Email, as: 'emails' },
+      { model: Telefone, as: 'telefones' },
+      { model: Produto, as: 'produtos' },
     ],
   });
   if (!result) return { code: 404, message: 'Not Found' };

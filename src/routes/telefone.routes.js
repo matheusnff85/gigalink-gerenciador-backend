@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import telefoneController from '../controllers/telefone.controller';
+const express = require('express');
+const telefoneController = require('../controllers/telefone.controller');
 
-const telefoneRouter = Router();
+const telefoneRouter = express.Router();
 
 telefoneRouter.get('/', telefoneController.getAll);
 telefoneRouter.get('/:id', telefoneController.getOne);
@@ -9,4 +9,4 @@ telefoneRouter.post('/', telefoneController.create);
 telefoneRouter.put('/:id', telefoneController.update);
 telefoneRouter.delete('/:id', telefoneController.remove);
 
-export default telefoneRouter;
+module.exports = telefoneRouter;

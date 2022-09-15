@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import transportadoraController from '../controllers/transportadora.controller';
+const express = require('express');
+const transportadoraController = require('../controllers/transportadora.controller');
 
-const transportadoraRouter = Router();
+const transportadoraRouter = express.Router();
 
 transportadoraRouter.get('/', transportadoraController.getAll);
 transportadoraRouter.get('/:id', transportadoraController.getOne);
@@ -9,4 +9,4 @@ transportadoraRouter.post('/', transportadoraController.create);
 transportadoraRouter.put('/:id', transportadoraController.update);
 transportadoraRouter.delete('/:id', transportadoraController.remove);
 
-export default transportadoraRouter;
+module.exports = transportadoraRouter;

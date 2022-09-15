@@ -1,12 +1,12 @@
-const {
-  Item, Produto, Pedido,
-} = require('../database/models');
+const { Item } = require('../database/models');
+const { Produto } = require('../database/models');
+const { Pedido } = require('../database/models');
 
 const getAll = async () => {
   const result = await Item.findAll({
     include: [
-      { model: Produto, as: 'produtos', through: { attributes: [] } },
-      { model: Pedido, as: 'pedidos', through: { attributes: [] } },
+      { model: Produto, as: 'produtos' },
+      { model: Pedido, as: 'pedidos' },
     ],
   });
   return { code: 200, data: result };
@@ -16,8 +16,8 @@ const getOne = async (id) => {
   const result = await Item.findOne({
     where: { id },
     include: [
-      { model: Produto, as: 'produtos', through: { attributes: [] } },
-      { model: Pedido, as: 'pedidos', through: { attributes: [] } },
+      { model: Produto, as: 'produtos' },
+      { model: Pedido, as: 'pedidos' },
     ],
   });
   if (!result) return { code: 404, message: 'Not Found' };

@@ -1,7 +1,7 @@
-import { Router } from 'express';
-import emailController from '../controllers/email.controller';
+const express = require('express');
+const emailController = require('../controllers/email.controller');
 
-const emailRouter = Router();
+const emailRouter = express.Router();
 
 emailRouter.get('/', emailController.getAll);
 emailRouter.get('/:id', emailController.getOne);
@@ -9,4 +9,4 @@ emailRouter.post('/', emailController.create);
 emailRouter.put('/:id', emailController.update);
 emailRouter.delete('/:id', emailController.remove);
 
-export default emailRouter;
+module.exports = emailRouter;

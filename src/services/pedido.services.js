@@ -1,11 +1,10 @@
-const {
-  Pedido, Transportadora,
-} = require('../database/models');
+const { Pedido } = require('../database/models');
+const { Transportadora } = require('../database/models');
 
 const getAll = async () => {
   const result = await Pedido.findAll({
     include: [
-      { model: Transportadora, as: 'transportadoras', through: { attributes: [] } },
+      { model: Transportadora, as: 'transportadoras' },
     ],
   });
   return { code: 200, data: result };
@@ -15,7 +14,7 @@ const getOne = async (id) => {
   const result = await Pedido.findOne({
     where: { id },
     include: [
-      { model: Transportadora, as: 'transportadoras', through: { attributes: [] } },
+      { model: Transportadora, as: 'transportadoras' },
     ],
   });
   if (!result) return { code: 404, message: 'Not Found' };

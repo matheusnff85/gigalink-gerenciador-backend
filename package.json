@@ -7,8 +7,8 @@
     "generatedb": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
     "dropdb": "npx sequelize-cli db:drop",
     "seeddb": "npx sequelize-cli db:seed:all",
-    "start": "node .",
-    "debug": "nodemon .",
+    "start": "node src/server.js",
+    "debug": "nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
