@@ -8,6 +8,8 @@ Neste repositório contém o backend da aplicação pedida, desenvolvido por [Ma
 O banco foi feito seguindo o diagrama pedido e se estrutura da seguinte forma ilustrada na imagem abaixo:
 <img src="images/estrutura.png">
 
+---
+
 ## Importante
 
 - Para iniciar o serviço de backend é necessário que você configure as variaveis de ambiente conditas no projeto, mude as para as de sua preferencia, você pode localiza-las no arquivo **.env.example** sinta-se livre para alterar o valor delas porém mantenha o nome da chave, após alterar para os dados que deseja mude o nome do arquivo para somente **.env**.
@@ -40,17 +42,17 @@ e instalar suas dependencias com o comando `npm install` na raiz do diretório e
 ## Scripts prontos
 
 - Gera o banco de dados:
-```json
+```bash
 npm run generatedb
 ```
 
 - Popula o banco de dados:
-```json
+```bash
 npm run seeddb
 ```
 
 - Deleta o banco de dados:
-```json
+```bash
 npm run dropdb
 ```
 
