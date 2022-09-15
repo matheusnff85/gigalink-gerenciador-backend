@@ -29,16 +29,10 @@ const validateNew = async (produtoObj) => {
 };
 
 const validateToUpdate = async (id, produtoObj) => {
-  const schemaValidate = produtoSchema.validate(produtoObj);
-  if ('error' in schemaValidate) {
-    const [code, message] = schemaValidate.error.details[0].message.split('|');
-    return { code, message };
-  }
-  const { idFornecedor } = produtoObj;
+  const schemaValidate = await validateNew(produtoObj);
+  if (schemaValidate !== true) return schemaValidate;
   const produtoExists = await Produto.findByPk(id);
   if (!produtoExists) return { code: 404, message: 'Produto not found' };
-  const fornecedorExists = await Fornecedor.findByPk(idFornecedor);
-  if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
 };
 

@@ -39,11 +39,8 @@ const validateNew = (fornecedorObj) => {
 };
 
 const validateToUpdate = async (id, fornecedorObj) => {
-  const schemaValidate = fornecedorSchema.validate(fornecedorObj);
-  if ('error' in schemaValidate) {
-    const [code, message] = schemaValidate.error.details[0].message.split('|');
-    return { code, message };
-  }
+  const schemaValidate = await validateNew(fornecedorObj);
+  if (schemaValidate !== true) return schemaValidate;
   const fornecedorExists = await Fornecedor.findByPk(id);
   if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;

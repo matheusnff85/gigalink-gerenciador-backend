@@ -30,16 +30,10 @@ const validateNew = async (emailObj) => {
 };
 
 const validateToUpdate = async (id, emailObj) => {
-  const schemaValidate = emailSchema.validate(emailObj);
-  if ('error' in schemaValidate) {
-    const [code, message] = schemaValidate.error.details[0].message.split('|');
-    return { code, message };
-  }
-  const { idFornecedor } = emailObj;
+  const schemaValidate = await validateNew(emailObj);
+  if (schemaValidate !== true) return schemaValidate;
   const emailExists = await Email.findByPk(id);
   if (!emailExists) return { code: 404, message: 'Email not found' };
-  const fornecedorExists = await Fornecedor.findByPk(idFornecedor);
-  if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
   return true;
 };
 
