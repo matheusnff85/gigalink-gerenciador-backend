@@ -11,6 +11,7 @@ module.exports = {
       datahora: {
         type: Sequelize.DATE,
         allowNull: false,
+        defaultValue: Sequelize.fn('NOW'),
       },
       notafiscal: {
         type: Sequelize.STRING
