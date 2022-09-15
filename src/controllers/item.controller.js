@@ -30,7 +30,7 @@ const update = async (req, res) => {
     const { id } = req.params;
     const result = await itemServices.update(id, req.body);
     if ('message' in result) {
-      return res.status(result.code).json({ message: result.message });
+      return res.status(Number(result.code)).json({ message: result.message });
     }
     return res.status(result.code).json(result.data);
   } catch (error) {
@@ -42,7 +42,7 @@ const create = async (req, res) => {
   try {
     const result = await itemServices.create(req.body);
     if ('message' in result) {
-      return res.status(result.code).json({ message: result.message });
+      return res.status(Number(result.code)).json({ message: result.message });
     }
     return res.status(result.code).json(result.data);
   } catch (error) {
