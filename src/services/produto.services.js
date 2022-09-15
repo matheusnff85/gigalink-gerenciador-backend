@@ -1,5 +1,6 @@
 const { Produto } = require('../database/models');
 const { Fornecedor } = require('../database/models');
+const { validateNew, validateToUpdate } = require('../validations/produto.validations');
 
 const getAll = async () => {
   const result = await Produto.findAll({
@@ -22,12 +23,16 @@ const getOne = async (id) => {
 };
 
 const update = async (id, updatedInfos) => {
+  const validate = await validateToUpdate(id, updatedInfos);
+  if (validate !== true) return validate;
   await Produto.update(updatedInfos, { where: { id } });
   const updated = await Produto.findByPk(id);
   return { code: 200, data: updated };
 };
 
 const create = async (newItem) => {
+  const validate = await validateNew(newItem);
+  if (validate !== true) return validate;
   const created = await Produto.create(newItem);
   return { code: 201, data: created };
 };
