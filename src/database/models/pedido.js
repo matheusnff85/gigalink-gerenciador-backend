@@ -1,7 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
   const Pedido = sequelize.define('Pedido', {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-    datahora: DataTypes.DATE,
+    datahora: {
+      type: DataTypes.DATE,
+      get: function() {
+        return this.getDataValue('datahora')
+          .toLocaleString('en-GB', { timeZone: 'UTC' });
+      }
+    },
     notafiscal: DataTypes.STRING,
     valorfrete: DataTypes.FLOAT,
     desconto: DataTypes.FLOAT,
