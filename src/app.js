@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const emailRouter = require('./routes/email.routes');
 const fornecedorRouter = require('./routes/fornecedor.routes');
 const telefoneRouter = require('./routes/telefone.routes');
@@ -10,6 +11,7 @@ const transportadoraRouter = require('./routes/transportadora.routes');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/emails', emailRouter);
 app.use('/fornecedores', fornecedorRouter);
