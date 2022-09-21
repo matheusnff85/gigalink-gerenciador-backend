@@ -2,7 +2,11 @@ const { Transportadora } = require('../database/models');
 const { validateNew, validateToUpdate } = require('../validations/transportadora.validations');
 
 const getAll = async () => {
-  const result = await Transportadora.findAll();
+  const result = await Transportadora.findAll({
+    order: [
+      ['id', 'ASC'],
+    ],
+  });
   return { code: 200, data: result };
 };
 

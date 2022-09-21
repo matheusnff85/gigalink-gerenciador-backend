@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       get: function() {
         return this.getDataValue('datahora')
           .toLocaleString('en-GB', { timeZone: 'UTC' });
-      }
+      },
+      defaultValue: sequelize.fn('NOW'),
     },
     notafiscal: DataTypes.STRING,
     valorfrete: DataTypes.FLOAT,

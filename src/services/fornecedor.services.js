@@ -11,6 +11,9 @@ const getAll = async () => {
       { model: Telefone, as: 'telefones' },
       { model: Produto, as: 'produtos' },
     ],
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   return { code: 200, data: result };
 };

@@ -9,6 +9,9 @@ const getAll = async () => {
       { model: Produto, as: 'produtos' },
       { model: Pedido, as: 'pedidos' },
     ],
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   return { code: 200, data: result };
 };

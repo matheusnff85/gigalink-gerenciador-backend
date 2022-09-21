@@ -7,6 +7,9 @@ const getAll = async () => {
     include: [
       { model: Transportadora, as: 'transportadoras' },
     ],
+    order: [
+      ['id', 'ASC'],
+    ],
   });
   return { code: 200, data: result };
 };
