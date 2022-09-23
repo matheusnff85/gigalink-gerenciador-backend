@@ -10,10 +10,9 @@ const produtoSchema = Joi.object({
     'string.base': '422|"descricao" must be a string',
     'any.required': '400|"descricao" is required',
   }),
-  idFornecedor: Joi.number().integer().required().messages({
+  idFornecedor: Joi.number().integer().messages({
     'number.base': '422|"idFornecedor" must be a number',
     'number.integer': '422|"idFornecedor" must be a integer',
-    'any.required': '400|"idFornecedor" is required',
   }),
 });
 

@@ -14,7 +14,8 @@ module.exports = {
         defaultValue: Sequelize.fn('NOW'),
       },
       notafiscal: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
       },
       valorfrete: {
         type: Sequelize.FLOAT,
@@ -30,7 +31,7 @@ module.exports = {
       },
       idTransportadora: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Transportadoras',
           key: 'id',

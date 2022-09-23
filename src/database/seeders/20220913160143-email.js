@@ -15,9 +15,8 @@ module.exports = {
       },
       {
         id: 3,
-        email: 'fornecedor2email2@gmail.com',
+        email: 'fornecedor4email@gmail.com',
         referencia: 'referencia3',
-        idFornecedor: 2,
       },
       ], { timestamps: false });
   },

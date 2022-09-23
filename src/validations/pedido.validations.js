@@ -18,10 +18,9 @@ const pedidoSchema = Joi.object({
     'number.base': '422|"valortotal" must be a number',
     'any.required': '400|"valortotal" is required',
   }),
-  idTransportadora: Joi.number().integer().required().messages({
+  idTransportadora: Joi.number().integer().messages({
     'number.base': '422|"idTransportadora" must be a number',
     'number.integer': '422|"idTransportadora" must be a integer',
-    'any.required': '400|"idTransportadora" is required',
   }),
 });
 

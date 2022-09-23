@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     valorfrete: DataTypes.FLOAT,
     desconto: DataTypes.FLOAT,
     valortotal: DataTypes.FLOAT,
-    idTransportadora: { type: DataTypes.INTEGER, foreignKey: true },
+    idTransportadora: { type: DataTypes.INTEGER, foreignKey: true, allowNull: true },
   },
   {
     timestamps: false,

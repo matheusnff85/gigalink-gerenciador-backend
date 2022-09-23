@@ -18,7 +18,7 @@ module.exports = {
       },
       idFornecedor: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: 'Fornecedores',
           key: 'id',

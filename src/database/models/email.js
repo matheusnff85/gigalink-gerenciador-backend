@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     email: DataTypes.STRING,
     referencia: DataTypes.STRING,
-    idFornecedor: { type: DataTypes.INTEGER, foreignKey: true },
+    idFornecedor: { type: DataTypes.INTEGER, foreignKey: true, allowNull: true },
   },
   {
     timestamps: false,

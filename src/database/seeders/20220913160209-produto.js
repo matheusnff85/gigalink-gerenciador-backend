@@ -11,7 +11,6 @@ module.exports = {
         id: 2,
         nome: 'Maça',
         descricao: 'fruta',
-        idFornecedor: 1,
       },
       {
         id: 3,

@@ -17,7 +17,6 @@ module.exports = {
         valorfrete: 45.9,
         desconto: 50,
         valortotal: 534.3,
-        idTransportadora: 2,
       },
       ], { timestamps: false });
   },

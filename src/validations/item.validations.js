@@ -10,10 +10,9 @@ const itemSchema = Joi.object({
     'number.base': '422|"valor" must be a number',
     'any.required': '400|"valor" is required',
   }),
-  idProduto: Joi.number().integer().required().messages({
+  idProduto: Joi.number().integer().messages({
     'number.base': '422|"idProduto" must be a number',
     'number.integer': '422|"idProduto" must be a integer',
-    'any.required': '400|"idProduto" is required',
   }),
   idPedido: Joi.number().integer().required().messages({
     'number.base': '422|"idPedido" must be a number',

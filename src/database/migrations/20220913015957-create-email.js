@@ -18,7 +18,7 @@ module.exports = {
       },
       idFornecedor: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: {

@@ -19,7 +19,6 @@ module.exports = {
         id: 3,
         quantidade: 1,
         valor: 499.90,
-        idProduto: 4,
         idPedido: 2,
       },
       ], { timestamps: false });

@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
     quantidade: DataTypes.FLOAT,
     valor: DataTypes.FLOAT,
-    idProduto: { type: DataTypes.INTEGER, foreignKey: true },
+    idProduto: { type: DataTypes.INTEGER, foreignKey: true, allowNull: true },
     idPedido: { type: DataTypes.INTEGER, foreignKey: true },
   },
   {
