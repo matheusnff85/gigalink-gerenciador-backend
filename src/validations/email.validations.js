@@ -23,8 +23,10 @@ const validateNew = async (emailObj) => {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const fornecedorExists = await Fornecedor.findByPk(emailObj.idFornecedor);
-  if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
+  if (emailObj.idFornecedor) {
+    const fornecedorExists = await Fornecedor.findByPk(emailObj.idFornecedor);
+    if (!fornecedorExists) return { code: 404, message: 'Fornecedor not found' };
+  }
   return true;
 };
 

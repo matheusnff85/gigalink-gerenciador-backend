@@ -27,8 +27,10 @@ const validateNew = async (itemObj) => {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const produtoExists = await Produto.findByPk(itemObj.idProduto);
-  if (!produtoExists) return { code: 404, message: 'Produto not found' };
+  if (itemObj.idProduto) {
+    const produtoExists = await Produto.findByPk(itemObj.idProduto);
+    if (!produtoExists) return { code: 404, message: 'Produto not found' };
+  }
   const pedidoExists = await Pedido.findByPk(itemObj.idPedido);
   if (!pedidoExists) return { code: 404, message: 'Pedido not found' };
   return true;

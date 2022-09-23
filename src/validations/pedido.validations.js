@@ -30,8 +30,10 @@ const validateNew = async (pedidoObj) => {
     const [code, message] = schemaValidate.error.details[0].message.split('|');
     return { code, message };
   }
-  const transportadoraExists = await Transportadora.findByPk(pedidoObj.idTransportadora);
-  if (!transportadoraExists) return { code: 404, message: 'Transportadora not found' };
+  if (pedidoObj.idTransportadora) {
+    const transportadoraExists = await Transportadora.findByPk(pedidoObj.idTransportadora);
+    if (!transportadoraExists) return { code: 404, message: 'Transportadora not found' };
+  }
   return true;
 };
 
