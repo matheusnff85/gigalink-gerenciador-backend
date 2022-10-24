@@ -7,7 +7,7 @@ const {
 const options = {
   host: MYSQL_HOST || 'localhost',
   port: MYSQL_PORT || '3306',
-  database: MYSQL_DB_NAME,
+  database: MYSQL_DB_NAME || 'database-vendas',
   username: MYSQL_USER || 'root',
   password: MYSQL_PASSWORD || '1234',
   dialect: 'mysql',

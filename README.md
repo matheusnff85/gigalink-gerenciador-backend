@@ -19,7 +19,7 @@ O banco foi feito seguindo o diagrama pedido e se estrutura da seguinte forma il
 #### DATABASE VARS
 MYSQL_HOST=localhost
 MYSQL_PORT=3306
-MYSQL_DB_NAME=gigalink_db
+MYSQL_DB_NAME=vendas_db
 MYSQL_USER=root
 MYSQL_PASSWORD=1234
 
